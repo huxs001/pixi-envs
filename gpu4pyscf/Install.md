@@ -1,0 +1,7 @@
+1. Install pixi with `curl -fsSL https://pixi.sh/install.sh | sh`.
+2. `cd /lustre/software/pixi/gpu4pyscf`
+3. `pixi install`
+4. `pixi shell`
+5. `which python3` to get its full path.
+6. Add that path, "/lustre/software/pixi/gpu4pyscf/.pixi/envs/default/bin" to $PATH.
+ 

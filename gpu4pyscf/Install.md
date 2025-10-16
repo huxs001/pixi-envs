@@ -1,3 +1,5 @@
+This one is for glibc-2.17, which lacks many conda packages and thus relay on host for libs.
+
 1. Install pixi with `curl -fsSL https://pixi.sh/install.sh | sh`.
 2. `cd /lustre/software/pixi/gpu4pyscf`
 3. `pixi install`. The only source file is `/lustre/software/pixi/gpu4pyscf/pixi.toml`.

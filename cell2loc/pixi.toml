@@ -1,0 +1,21 @@
+[workspace]
+authors = ["HU Xuesong <87519979+huxs001@users.noreply.github.com>"]
+channels = ["conda-forge", "bioconda", "nvidia"]
+name = "cell2loc"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[system-requirements]
+cuda = "12"
+
+[dependencies]
+python = "3.11.*"
+#jaxlib = { version = "*", build = "*cuda*" }
+cuda-version = "12.*"
+pip = ">=25.2,<26"
+scanpy = ">=1.11.4,<2"
+pytorch-gpu = ">=2.8.0,<3"
+marimo = ">=0.16.5,<0.17"
+

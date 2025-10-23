@@ -29,6 +29,7 @@ cuda-toolkit = ">=12"
 
 [feature.pytorch.dependencies]
 pytorch-gpu = ">=2.8.0"
+squidpy = ">=1.2.2" # pytorch should be optional, but not from conda-forge
 
 [feature.tensorflow.dependencies]
 tensorflow-gpu = ">=2.18.0"
@@ -55,8 +56,8 @@ tcell2loc = "python -c 'import cell2location;cell2location.utils.list_imported_m
 [feature.cell2loc.dependencies]
 jax = "*"
 scvi-tools = ">=1.4.0.post1"
-fsspec = ">=2025.9.0"
-aiohttp = ">=3.13.0"
+#fsspec = ">=2025.9.0"  # also from squidpy
+#aiohttp = ">=3.13.0"   # also from squidpy
 scikit-misc = ">=0.5.1"
 pyro-ppl = ">=1.9.1"
 py-opencv = "*"

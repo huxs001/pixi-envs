@@ -12,33 +12,57 @@ cuda = "12"
 
 [dependencies]
 python = "3.11.*"
-jaxlib = { version = "*", build = "*cuda*" }
-cuda-version = "12.*"
-cuda-toolkit = ">=12"
-pip = ">=25.2,<26"
-scanpy = ">=1.11.5,<2"
-ipykernel = ">=7.0.1,<8"
-jupyterlab = "*"
-pixi-kernel = "*"
-ipywidgets = "*"
-pytorch-gpu = ">=2.8.0,<3"
-marimo = ">=0.16.5,<0.17"
-leidenalg = ">=0.10.2,<0.11"
-python-igraph = ">=0.11.9,<0.12"
-jax = "*"
-scvi-tools = ">=1.4.0.post1,<2"
-fsspec = ">=2025.9.0,<2026"
-aiohttp = ">=3.13.0,<4"
-scikit-misc = ">=0.5.1,<0.6"
-pyro-ppl = ">=1.9.1,<2"
-opencv = "*"
+pip = ">=25.2"
+scanpy = ">=1.11.5"
+leidenalg = ">=0.10.2"
+python-igraph = ">=0.11.9"
+marimo = "*"
+ipykernel = ">=7.0.1"
 
 [pypi-dependencies]
 #cell2location = { version = ">=0.1.5, <0.2", extras = ["tutorials"] }
 
+[feature.cuda.dependencies]
+jaxlib = { version = "*", build = "*cuda*" }
+cuda-version = "12.*"
+cuda-toolkit = ">=12"
+
+[feature.pytorch.dependencies]
+pytorch-gpu = ">=2.8.0"
+
+[feature.tensorflow.dependencies]
+tensorflow-gpu = ">=2.18.0"
+
+[feature.jupyserver.dependencies]
+pixi-kernel = "*"
+jupyterlab = "*"
+ipywidgets = "*"
+
+[feature.jupyserver.tasks]
+jlab = "python3 -Xfrozen_modules=off -m jupyterlab_server"
+
+[feature.jupyverse.dependencies]
+jupyverse = "*"
+fps-auth = "*"
+fps-jupyterlab = "*"
+
 [feature.cell2location.pypi-dependencies]
 cell2location = { version = ">=0.1.5", extras = ["tutorials"] }
 
+[feature.cell2location.tasks]
+tcell2loc = "python -c 'import cell2location;cell2location.utils.list_imported_modules()'"
+
+[feature.cell2loc.dependencies]
+jax = "*"
+scvi-tools = ">=1.4.0.post1"
+fsspec = ">=2025.9.0"
+aiohttp = ">=3.13.0"
+scikit-misc = ">=0.5.1"
+pyro-ppl = ">=1.9.1"
+py-opencv = "*"
+
 [environments]
-th = ["cell2location"]
+tf = ["cuda", "tensorflow", "jupyverse"]
+torch = ["cuda", "pytorch", "cell2loc"]
+th = ["cuda", "pytorch", "jupyserver", "cell2loc", "cell2location"]
 
